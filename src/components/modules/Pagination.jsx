@@ -18,7 +18,7 @@ function Pagination({page , setPage}) {
         <p style={{color: page === 2 ? "red" : "inherit"}}>2</p>
         <p>...</p>
         {
-            page > 3 && page < 9 && (
+            page > 2 && page < 9 && (
                 <>
                     <p>{page}</p>
                     <span>...</span>
