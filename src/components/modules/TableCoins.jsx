@@ -4,7 +4,7 @@ import chartDown from "../../assets/chart-down.svg"
 import { RotatingLines } from 'react-loader-spinner';
 import styles from "./TableCoins.module.css"
 
-function TableCoins({coins , isLoading}) {
+function TableCoins({coins , isLoading  , currency}) {
     console.log(coins);
   return (
     <div className={styles.container}>
@@ -26,7 +26,7 @@ function TableCoins({coins , isLoading}) {
             <tbody>
               {
                 coins.map((coin) =>( 
-                   <TableRow coin={coin} key={coin.id}/>
+                   <TableRow coin={coin} key={coin.id} currency={currency}/>
                   )
                 )
               }
@@ -49,7 +49,7 @@ const TableRow = ({
     current_price , 
     total_volume , 
     price_change_percentage_24h: price_cheange
-  }}) => {
+  } , currency}) => {
     return(
     <tr>
       <td>
@@ -59,7 +59,16 @@ const TableRow = ({
         </div>
        </td>
        <td>{name}</td>
-       <td>${current_price.toLocaleString()}</td>
+       <td >
+      {
+      currency === "usd" ? "$" : 
+      currency ==="eur" ? "€" : 
+      currency === "jpy" ? "¥" : 
+      null
+      }
+
+      {current_price.toLocaleString()}
+        </td>
        <td className={price_cheange > 0 ? styles.success : styles.error}>{price_cheange.toFixed(2)}%</td>
        <td>{total_volume.toLocaleString()}</td>
        <td><img src={price_cheange > 0 ? chartUp : chartDown} /></td>
