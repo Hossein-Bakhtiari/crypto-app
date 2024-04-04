@@ -56,7 +56,7 @@
 @media (max-width: 600px) {
     .table {
         display: block;
-        overflow-y: scroll;
+        overflow-x: scroll;
     }
 
     .table td,

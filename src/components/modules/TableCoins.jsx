@@ -12,7 +12,7 @@ function TableCoins({coins , isLoading}) {
           isLoading ? (
               <RotatingLines strokeColor='#3874ff' strokeWidth='2' /> 
           ) : (
-            <table className={styles.table}>
+          <table className={styles.table}>
             <thead>
               <tr>
                 <th>Coin</th>
@@ -51,7 +51,7 @@ const TableRow = ({
     price_change_percentage_24h: price_cheange
   }}) => {
     return(
-      <tr>
+    <tr>
       <td>
         <div className={styles.symbol}>
           <img src={image} />
