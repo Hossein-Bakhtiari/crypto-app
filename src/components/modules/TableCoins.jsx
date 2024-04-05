@@ -50,6 +50,7 @@ const TableRow = ({
     total_volume , 
     price_change_percentage_24h: price_cheange
   } , currency}) => {
+ 
     return(
     <tr>
       <td>
@@ -61,17 +62,18 @@ const TableRow = ({
        <td>{name}</td>
        <td >
       {
-      currency === "usd" ? "$" : 
-      currency ==="eur" ? "€" : 
-      currency === "jpy" ? "¥" : 
-      null
-      }
+        currency === "usd" ? "$" : 
+        currency ==="eur" ? "€" : 
+        currency === "jpy" ? "¥" : null
+      } 
 
       {current_price.toLocaleString()}
         </td>
        <td className={price_cheange > 0 ? styles.success : styles.error}>{price_cheange.toFixed(2)}%</td>
        <td>{total_volume.toLocaleString()}</td>
        <td><img src={price_cheange > 0 ? chartUp : chartDown} /></td>
+    
     </tr>
+    
     )
 }
