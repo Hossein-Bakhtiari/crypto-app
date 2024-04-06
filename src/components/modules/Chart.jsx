@@ -7,6 +7,14 @@ function Chart({chart , setChart}) {
 
     const [type, setType] = useState("prices")
     console.log(ConvertData( chart , type));
+
+    const typeHandler = (event) => {
+      if (event.target.tagName === "BUTTON") {
+        const type = event.target.innerText.toLowerCase().replace(" " , "_")
+        setType(type);
+      }
+    }
+
   return (
     <div className={styles.container}>
         <span className={styles.cross} onClick={() => setChart(null)}>X</span>
@@ -21,10 +29,16 @@ function Chart({chart , setChart}) {
                 <ChartComponent data={ConvertData( chart , type)} type={type}/>
             </div>
 
-            <div className={styles.types}>
-                <button>Prices</button>
-                <button>Market Caps</button>
-                <button>Total Volumes</button>
+            <div className={styles.types} onClick={typeHandler}>
+                <button className={ type === "prices" ? styles.selected : null }>
+                   Prices
+                </button>
+                <button className={ type === "market_caps" ? styles.selected : null } >
+                  Market Caps
+                </button>
+                <button className={ type === "total_volumes" ? styles.selected : null }>
+                  Total Volumes
+                </button>
             </div>
             
             <div className={styles.details}>
