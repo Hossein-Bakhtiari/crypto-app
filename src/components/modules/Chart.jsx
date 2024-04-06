@@ -11,8 +11,35 @@ function Chart({chart , setChart}) {
     <div className={styles.container}>
         <span className={styles.cross} onClick={() => setChart(null)}>X</span>
         <div className={styles.chart}>
+            
+            <div className={styles.name}>
+                <img src={chart.coin.image} alt={chart.coin.name} />
+                <p>{chart.coin.name}</p>
+            </div>
+
             <div className={styles.graph}>
                 <ChartComponent data={ConvertData( chart , type)} type={type}/>
+            </div>
+
+            <div className={styles.types}>
+                <button>Prices</button>
+                <button>Market Caps</button>
+                <button>Total Volumes</button>
+            </div>
+            
+            <div className={styles.details}>
+                <div>
+                  <p>Prices:</p>
+                  <span>${chart.coin.current_price}</span>
+                </div>
+                <div>
+                  <p>ATH:</p>
+                  <span>${chart.coin.ath}</span>
+                </div>
+                <div>
+                  <p>Market Cap:</p>
+                  <span>{chart.coin.market_cap}</span>
+                </div>
             </div>
         </div>
     </div>
