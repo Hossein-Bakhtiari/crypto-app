@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './chart.module.css';
-import { convertData } from '../helpers/contvertData';
+import { convertData } from "../helpers/convertData";
 import {
   CartesianGrid,
   Legend,
